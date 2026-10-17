@@ -1,0 +1,99 @@
+{
+  "fps": 30,
+  "style": {
+    "accent": "#C9A44C",
+    "fonts": {
+      "primary": "Inter",
+      "accent": "Cormorant Garamond"
+    },
+    "font_colors": {
+      "base": "#F4F1EA",
+      "accent": "#C9A44C"
+    }
+  },
+  "lines": [
+    {
+      "id": "L01",
+      "start": 0.0,
+      "end": 1.6,
+      "text": "So here's the thing about",
+      "scene_type": "captions",
+      "animation_type": null,
+      "camera": "static",
+      "keywords": [
+        "thing"
+      ]
+    },
+    {
+      "id": "L02",
+      "start": 1.6,
+      "end": 4.3,
+      "text": "most edits fail because they move too much.",
+      "scene_type": "half_screen",
+      "animation_type": "graphic",
+      "camera": "punch_in",
+      "notes": "loading bar, only one segment lights up",
+      "keywords": [
+        "fail"
+      ]
+    },
+    {
+      "id": "L03",
+      "start": 4.3,
+      "end": 6.4,
+      "text": "I think less is more.",
+      "scene_type": "captions_ui",
+      "animation_type": "text",
+      "camera": "static",
+      "keywords": [
+        "less"
+      ]
+    },
+    {
+      "id": "L04",
+      "start": 6.4,
+      "end": 8.2,
+      "text": "Make every element 25% smaller.",
+      "scene_type": "full_screen",
+      "animation_type": "object",
+      "camera": "slow_push",
+      "notes": "play icon starts too big then snaps 25% smaller",
+      "keywords": [
+        "25%"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "t": 1.6,
+      "type": "transition",
+      "intensity": 2
+    },
+    {
+      "t": 1.7,
+      "type": "text_in"
+    },
+    {
+      "t": 1.75,
+      "type": "text_in"
+    },
+    {
+      "t": 4.3,
+      "type": "ui"
+    },
+    {
+      "t": 6.4,
+      "type": "reveal",
+      "intensity": 3
+    },
+    {
+      "t": 6.4,
+      "type": "impact",
+      "intensity": 3
+    },
+    {
+      "t": 7.0,
+      "type": "text_in"
+    }
+  ]
+}

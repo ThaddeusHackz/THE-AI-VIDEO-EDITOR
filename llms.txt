@@ -1,0 +1,48 @@
+# THE-AI-VIDEO-EDITOR
+
+> Programmatic video studio for AI agents: Remotion, HyperFrames (HeyGen), Three.js/R3F, Blender MCP, Higgsfield cinema/VFX, REA reverse engineering. It includes skills, forensic capability atlases for Claude Opus 5.5 / GPT-6.1 Sol / Gemini 4 Argon / Higgsfield / HeyGen / Remotion, and a tested toolkit (`pro-editor-kit/`) that cuts, captions, lints, mixes and QA-checks videos.
+
+## Start here
+- [Agent operating loop](pro-editor-kit/START-HERE-FOR-AGENTS.md): brief → transcript → cut → plan → build → lint → render → QA → critic → sound → deliver
+- [Pro Editor Kit overview](pro-editor-kit/README.md)
+- [Repository README](README.md)
+- [AGENTS.md](AGENTS.md) · [CLAUDE.md](CLAUDE.md) · [GEMINI.md](GEMINI.md)
+
+## Model playbooks
+- [Claude Opus 5.5](pro-editor-kit/models/claude-opus-5.5.md)
+- [GPT-6.1 Sol / GPT-6 Astra](pro-editor-kit/models/gpt-6.1-sol.md)
+- [Gemini 4 Argon](pro-editor-kit/models/gemini-4-argon.md)
+- [Director doctrine (existing skill)](skills/opus-5-5-sol-6-1-director/SKILL.md)
+
+## Doctrine and gates
+- [Master editor protocol](skills/master-editor-protocol/SKILL.md)
+- [Motion quality gates](skills/motion-quality-gates/SKILL.md)
+- [Motion doctrine](skills/motion-doctrine/SKILL.md)
+- [Motion tokens](pro-editor-kit/tokens/motion-tokens.json)
+
+## Tools (Python stdlib + ffmpeg)
+- [kit.py entry point](pro-editor-kit/tools/kit.py): doctor, autocut, captions, lint, sfx, beats, qa, validate
+- [Schemas](pro-editor-kit/schemas/)
+
+## Playbooks
+- [Viral talking-head reel](pro-editor-kit/playbooks/viral-talking-head-reel.md)
+- [Sound design](pro-editor-kit/playbooks/sound-design.md)
+- [Editorial explainer](pro-editor-kit/playbooks/editorial-explainer.md)
+- [Avatar presenter (HeyGen + HyperFrames)](pro-editor-kit/playbooks/avatar-presenter-heygen.md)
+- [HUD and tracked overlays](pro-editor-kit/playbooks/hud-and-tracked-overlays.md)
+- [3D, voxel and Blender](pro-editor-kit/playbooks/3d-voxel-and-blender.md)
+- [Revision protocol](pro-editor-kit/playbooks/revision-protocol.md)
+
+## Capability atlases
+- [Gemini 4 Argon](skills/gemini-4-argon-forensic-atlas/SKILL.md)
+- [Higgsfield (Cinema Studio, Genjutsu, Katana, MCP)](skills/higgsfield-forensic-atlas/SKILL.md)
+- [HeyGen GitHub](skills/heygen-github-forensic-atlas/SKILL.md)
+- [Remotion GitHub](skills/remotion-github-forensic-atlas/SKILL.md)
+- [Capability delta 2026-10-17](pro-editor-kit/evidence/capability-delta-2026-10-17.md)
+
+## Evidence
+- [Reference-video breakdowns](pro-editor-kit/evidence/reference-video-breakdowns.md)
+- [YouTube technique catalogue](pro-editor-kit/evidence/youtube-technique-catalogue.md)
+
+## Optional
+- [Video gallery](docs/VIDEO-GALLERY.md) · [Drive showcase](docs/DRIVE-SHOWCASE.md) · [Forensics index](docs/forensics/README.md)

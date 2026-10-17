@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Planning board — pro-editor-kit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#14161A; --panel:#1C1F24; --fg:#F4F1EA; --muted:#8B949E; --accent:#C9A44C; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--fg); }
+  header { padding:16px 20px; border-bottom:1px solid #2A2E35; display:flex; flex-wrap:wrap; gap:16px; align-items:end; }
+  h1 { font-size:16px; margin:0 24px 0 0; }
+  label { display:flex; flex-direction:column; gap:4px; font-size:12px; color:var(--muted); }
+  input, select, textarea, button { font:inherit; color:var(--fg); background:var(--panel); border:1px solid #30363D; border-radius:6px; padding:6px 8px; }
+  input[type=color] { padding:0; width:48px; height:32px; }
+  button { cursor:pointer; background:var(--accent); color:#111; border:0; font-weight:600; }
+  button.ghost { background:transparent; color:var(--fg); border:1px solid #30363D; }
+  main { padding:12px 20px 60px; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { text-align:left; vertical-align:top; padding:8px 6px; border-bottom:1px solid #22262C; }
+  th { font-size:12px; color:var(--muted); font-weight:500; position:sticky; top:0; background:var(--bg); }
+  td.t { white-space:nowrap; color:var(--muted); font-variant-numeric:tabular-nums; }
+  td.txt { width:32%; }
+  textarea { width:100%; min-height:38px; resize:vertical; }
+  .warn { color:#E3B341; font-size:12px; }
+  .mix { font-size:12px; color:var(--muted); }
+  .preview { font-weight:700; }
+  .preview em { font-style:normal; color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Planning board</h1>
+  <label>Transcript / words JSON <input type="file" id="file" accept=".json"></label>
+  <label>FPS <input type="number" id="fps" value="30" min="1" style="width:70px"></label>
+  <label>Accent <input type="color" id="accent" value="#C9A44C"></label>
+  <label>Base text <input type="color" id="base" value="#F4F1EA"></label>
+  <label>Primary font <input id="font1" value="Inter"></label>
+  <label>Accent font <input id="font2" value="Cormorant Garamond"></label>
+  <label>Line break pause (s) <input type="number" id="gap" value="0.5" step="0.05" style="width:80px"></label>
+  <button id="export">Export scene-plan.json</button>
+  <button class="ghost" id="exportCsv">Export beat-table.csv</button>
+</header>
+<main>
+  <p class="mix" id="mix">Load words.retimed.json from tools/autocut.py, or any Whisper / WhisperX / Deepgram / Remotion caption JSON.</p>
+  <table>
+    <thead><tr><th>Time</th><th>Script line</th><th>Scene type</th><th>Animation</th><th>Camera</th><th>Keywords</th><th>Plan / notes / assets</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+<script>
+(function () {
+  "use strict";
+  var SCENES = ["captions", "captions_ui", "half_screen", "full_screen", "broll", "pip", "split"];
+  var ANIMS = ["", "text", "person", "object", "graphic"];
+  var CAMS = ["static", "punch_in", "slow_push", "whip", "track", "orbit", "dolly", "crash_zoom"];
+  var lines = [];
+  var $ = function (id) { return document.getElementById(id); };
+
+  function normalise(data) {
+    var raw = Array.isArray(data) ? data
+      : data.word_segments || (data.segments && [].concat.apply([], data.segments.map(function (s) { return s.words || []; })))
+      || (data.results && data.results.channels[0].alternatives[0].words)
+      || data.words || (data.pages && [].concat.apply([], data.pages.map(function (p) { return p.words.map(function (w) { return { word: w.text, start: w.start, end: w.end }; }); }))) || [];
+    return raw.map(function (w) {
+      var s = w.startMs !== undefined ? w.startMs / 1000 : w.start;
+      var e = w.endMs !== undefined ? w.endMs / 1000 : w.end;
+      return { word: String(w.word || w.text || w.punctuated_word || "").trim(), start: s, end: e };
+    }).filter(function (w) { return w.word && typeof w.start === "number" && typeof w.end === "number"; })
+      .sort(function (a, b) { return a.start - b.start; });
+  }
+
+  function toLines(words, gap) {
+    var out = [], cur = [];
+    words.forEach(function (w) {
+      if (cur.length) {
+        var prev = cur[cur.length - 1];
+        if (w.start - prev.end > gap || /[.?!]$/.test(prev.word) || cur.length >= 16) { out.push(cur); cur = []; }
+      }
+      cur.push(w);
+    });
+    if (cur.length) out.push(cur);
+    return out.map(function (ws, i) {
+      return { id: "L" + String(i + 1).padStart(2, "0"), start: ws[0].start, end: ws[ws.length - 1].end,
+        text: ws.map(function (w) { return w.word; }).join(" "), scene_type: i === 0 ? "captions" : "captions",
+        animation_type: "", camera: i === 0 ? "punch_in" : "static", keywords: "", notes: "" };
+    });
+  }
+
+  function fmt(t) { var m = Math.floor(t / 60), s = (t - m * 60).toFixed(2); return m + ":" + (s < 10 ? "0" : "") + s; }
+
+  function select(options, value, onChange) {
+    var el = document.createElement("select");
+    options.forEach(function (o) { var op = document.createElement("option"); op.value = o; op.textContent = o || "—"; if (o === value) op.selected = true; el.appendChild(op); });
+    el.addEventListener("change", function () { onChange(el.value); render(); });
+    return el;
+  }
+
+  function preview(line) {
+    var kws = line.keywords.toLowerCase().split(/[,\s]+/).filter(Boolean);
+    var span = document.createElement("div");
+    span.className = "preview";
+    line.text.split(" ").forEach(function (w, i) {
+      var clean = w.toLowerCase().replace(/[^\w%$']/g, "");
+      var node = kws.indexOf(clean) >= 0 ? document.createElement("em") : document.createElement("span");
+      node.textContent = (i ? " " : "") + w;
+      span.appendChild(node);
+    });
+    return span;
+  }
+
+  function render() {
+    var tb = $("rows");
+    tb.innerHTML = "";
+    var counts = {};
+    lines.forEach(function (l, i) {
+      counts[l.scene_type] = (counts[l.scene_type] || 0) + 1;
+      var tr = document.createElement("tr");
+      var t = document.createElement("td"); t.className = "t"; t.textContent = fmt(l.start) + " → " + fmt(l.end); tr.appendChild(t);
+      var txt = document.createElement("td"); txt.className = "txt"; txt.appendChild(preview(l));
+      if (i >= 2 && lines[i - 1].scene_type === l.scene_type && lines[i - 2].scene_type === l.scene_type) {
+        var w = document.createElement("div"); w.className = "warn"; w.textContent = "3rd identical scene type in a row: vary it"; txt.appendChild(w);
+      }
+      tr.appendChild(txt);
+      [[SCENES, "scene_type"], [ANIMS, "animation_type"], [CAMS, "camera"]].forEach(function (pair) {
+        var td = document.createElement("td");
+        td.appendChild(select(pair[0], l[pair[1]], function (v) { l[pair[1]] = v; }));
+        tr.appendChild(td);
+      });
+      var kw = document.createElement("td"); var ki = document.createElement("input"); ki.value = l.keywords; ki.placeholder = "accent words";
+      ki.addEventListener("change", function () { l.keywords = ki.value; render(); }); kw.appendChild(ki); tr.appendChild(kw);
+      var nt = document.createElement("td"); var ta = document.createElement("textarea"); ta.value = l.notes;
+      ta.placeholder = "What appears on screen? Which assets do you need?";
+      ta.addEventListener("input", function () { l.notes = ta.value; }); nt.appendChild(ta); tr.appendChild(nt);
+      tb.appendChild(tr);
+    });
+    var total = lines.length || 1;
+    $("mix").textContent = lines.length + " lines · mix: " + SCENES.filter(function (s) { return counts[s]; }).map(function (s) {
+      return s + " " + Math.round(100 * counts[s] / total) + "%"; }).join(" · ") + "  (reel target ≈ captions 50 / captions_ui 20 / half 20 / full 10)";
+  }
+
+  function events() {
+    var ev = [];
+    lines.forEach(function (l, i) {
+      var prev = lines[i - 1];
+      if (prev && prev.scene_type !== l.scene_type) ev.push({ t: +l.start.toFixed(3), type: "transition", intensity: l.scene_type === "full_screen" ? 3 : 2 });
+      if (l.scene_type === "captions_ui") ev.push({ t: +(l.start + 0.05).toFixed(3), type: "ui" });
+      if (l.scene_type === "full_screen") ev.push({ t: +l.start.toFixed(3), type: "reveal", intensity: 3 });
+      if (l.camera === "punch_in" || l.camera === "crash_zoom") ev.push({ t: +l.start.toFixed(3), type: "zoom" });
+    });
+    return ev;
+  }
+
+  function plan() {
+    return {
+      fps: Number($("fps").value) || 30,
+      style: { accent: $("accent").value, fonts: { primary: $("font1").value, accent: $("font2").value },
+        font_colors: { base: $("base").value, accent: $("accent").value } },
+      lines: lines.map(function (l) {
+        var o = { id: l.id, start: +l.start.toFixed(3), end: +l.end.toFixed(3), text: l.text, scene_type: l.scene_type,
+          animation_type: l.animation_type || null, camera: l.camera, notes: l.notes,
+          keywords: l.keywords.split(/[,\s]+/).filter(Boolean) };
+        return o;
+      }),
+      events: events()
+    };
+  }
+
+  function download(name, text, type) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: type }));
+    a.download = name; a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000); // UI-only timer, not part of any render
+  }
+
+  $("file").addEventListener("change", function (e) {
+    var f = e.target.files[0]; if (!f) return;
+    f.text().then(function (t) { lines = toLines(normalise(JSON.parse(t)), Number($("gap").value) || 0.5); render(); });
+  });
+  $("export").addEventListener("click", function () { download("scene-plan.json", JSON.stringify(plan(), null, 2), "application/json"); });
+  $("exportCsv").addEventListener("click", function () {
+    var rows = [["t_start", "t_end", "line_id", "spoken_text", "scene_type", "animation_type", "camera", "keywords", "notes"]];
+    lines.forEach(function (l) { rows.push([fmt(l.start), fmt(l.end), l.id, l.text, l.scene_type, l.animation_type, l.camera, l.keywords, l.notes]); });
+    download("beat-table.csv", rows.map(function (r) { return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(","); }).join("\n"), "text/csv");
+  });
+  window.__planningBoard = { normalise: normalise, toLines: toLines, plan: plan, setLines: function (l) { lines = l; }, events: events };
+})();
+</script>
+</body>
+</html>
