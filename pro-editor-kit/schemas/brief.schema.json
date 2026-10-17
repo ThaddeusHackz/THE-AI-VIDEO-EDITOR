@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pro-editor-kit brief",
+  "type": "object",
+  "required": [
+    "title",
+    "platform",
+    "aspect",
+    "fps",
+    "width",
+    "height",
+    "duration_seconds"
+  ],
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "tiktok",
+        "reels",
+        "shorts",
+        "youtube",
+        "linkedin",
+        "x",
+        "podcast",
+        "broadcast",
+        "web"
+      ]
+    },
+    "aspect": {
+      "type": "string",
+      "enum": [
+        "9:16",
+        "16:9",
+        "1:1",
+        "4:5",
+        "21:9"
+      ]
+    },
+    "fps": {
+      "type": "number",
+      "enum": [
+        24,
+        25,
+        30,
+        50,
+        60
+      ]
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 240
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 240
+    },
+    "duration_seconds": {
+      "type": "number",
+      "minimum": 1
+    },
+    "lufs": {
+      "type": "number",
+      "minimum": -31,
+      "maximum": -9
+    },
+    "tone": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "palette": {
+      "type": "object",
+      "properties": {
+        "bg": {
+          "type": "string"
+        },
+        "fg": {
+          "type": "string"
+        },
+        "accent": {
+          "type": "string"
+        },
+        "muted": {
+          "type": "string"
+        }
+      }
+    },
+    "fonts": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "string"
+        },
+        "accent": {
+          "type": "string"
+        },
+        "mono": {
+          "type": "string"
+        }
+      }
+    },
+    "must_keep_lines": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "use"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "use": {
+            "type": "string",
+            "enum": [
+              "style",
+              "pacing",
+              "captions",
+              "sound",
+              "layout",
+              "motion"
+            ]
+          },
+          "rights": {
+            "type": "string",
+            "enum": [
+              "owned",
+              "licensed",
+              "reference-only"
+            ]
+          }
+        }
+      }
+    },
+    "engine": {
+      "type": "string",
+      "enum": [
+        "remotion",
+        "hyperframes",
+        "blender",
+        "mixed"
+      ]
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

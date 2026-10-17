@@ -1,0 +1,207 @@
+{
+  "$comment": "Single source of truth for motion. Mirrors skills/motion-quality-gates and the reference-edit rules (25% smaller, fewer effects, muted colours). Seconds unless noted. Consumed by tokens/motion.ts (Remotion) and tokens/motion.gsap.js (HyperFrames/GSAP).",
+  "duration": {
+    "micro": 0.2,
+    "text_in": 0.4,
+    "text_out": 0.28,
+    "panel": 0.55,
+    "scene_transition": 0.6,
+    "camera_move": 2.5,
+    "camera_move_max": 4.0,
+    "min_tween": 0.12
+  },
+  "hold": {
+    "base": 0.3,
+    "per_word": 0.06,
+    "after_reveal_min": 0.5
+  },
+  "stagger": {
+    "tight": 0.04,
+    "default": 0.06,
+    "loose": 0.09,
+    "lines": 0.12
+  },
+  "easing": {
+    "out": {
+      "bezier": [
+        0.16,
+        1,
+        0.3,
+        1
+      ],
+      "gsap": "expo.out",
+      "use": "entrances, things arriving"
+    },
+    "in": {
+      "bezier": [
+        0.7,
+        0,
+        0.84,
+        0
+      ],
+      "gsap": "power3.in",
+      "use": "exits (70% of entrance duration)"
+    },
+    "inOut": {
+      "bezier": [
+        0.65,
+        0,
+        0.35,
+        1
+      ],
+      "gsap": "power3.inOut",
+      "use": "camera moves, position-to-position"
+    },
+    "soft": {
+      "bezier": [
+        0.33,
+        1,
+        0.68,
+        1
+      ],
+      "gsap": "power2.out",
+      "use": "subtle UI, captions"
+    },
+    "snap": {
+      "bezier": [
+        0.2,
+        0.9,
+        0.1,
+        1
+      ],
+      "gsap": "power4.out",
+      "use": "punch-ins, UI snaps"
+    },
+    "linear": {
+      "bezier": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "gsap": "none",
+      "use": "ONLY loops, tickers, continuous rotation, progress bars tied to time"
+    }
+  },
+  "spring": {
+    "gentle": {
+      "damping": 20,
+      "mass": 1,
+      "stiffness": 120
+    },
+    "snappy": {
+      "damping": 14,
+      "mass": 0.6,
+      "stiffness": 180
+    },
+    "pop": {
+      "damping": 12,
+      "mass": 0.7,
+      "stiffness": 200,
+      "note": "max overshoot ~6-8%"
+    },
+    "heavy": {
+      "damping": 22,
+      "mass": 1.2,
+      "stiffness": 90
+    }
+  },
+  "scale": {
+    "pop_overshoot_max": 1.08,
+    "punch_in": [
+      1.0,
+      1.12
+    ],
+    "punch_in_max": 1.2,
+    "element_size_rule": "design at the size that feels right, then shrink ~25%"
+  },
+  "choreography": {
+    "max_simultaneous_focal_moves": 2,
+    "lead_with": "most important element",
+    "direction": "follow reading direction / edit momentum",
+    "graphics_per_second_reel": [
+      0.2,
+      0.33
+    ]
+  },
+  "safe_area": {
+    "16:9": {
+      "x": 0.1,
+      "y": 0.1
+    },
+    "9:16": {
+      "x": 0.08,
+      "top": 0.12,
+      "bottom": 0.18,
+      "note": "platform UI covers bottom ~15-18% and right rail"
+    },
+    "1:1": {
+      "x": 0.08,
+      "y": 0.08
+    }
+  },
+  "captions": {
+    "reel": {
+      "max_words": 4,
+      "position": "lower half, clear of the face",
+      "emphasis_per_page": 1,
+      "animation": "word-by-word pop + fade, 0.12-0.18 s per word"
+    },
+    "youtube": {
+      "max_words": 8,
+      "max_cps": 17
+    },
+    "contrast_min": 4.5
+  },
+  "type_scale_1080w": {
+    "caption": 64,
+    "caption_reel_1080x1920": 72,
+    "lower_third": 44,
+    "title": 120,
+    "kicker": 32,
+    "min_body": 28
+  },
+  "palettes": {
+    "muted_luxury": {
+      "bg": "#14161A",
+      "fg": "#F4F1EA",
+      "accent": "#C9A44C",
+      "muted": "#7D8A80",
+      "blue": "#4A6178",
+      "green": "#5E7262"
+    },
+    "editorial_mono": {
+      "bg": "#EDEAE3",
+      "fg": "#1C1C1C",
+      "accent": "#B23A2B",
+      "muted": "#8C8A84"
+    },
+    "tech_night": {
+      "bg": "#0E1116",
+      "fg": "#E6EDF3",
+      "accent": "#5BB8FF",
+      "muted": "#6E7681",
+      "warn": "#E3B341"
+    },
+    "avoid": [
+      "#000000 full-frame",
+      "#FFFFFF full-frame",
+      "#FF0000"
+    ]
+  },
+  "sound": {
+    "voice_lufs_social": -14,
+    "voice_lufs_youtube": -14,
+    "music_bed_db": -20,
+    "duck_db": [
+      10,
+      14
+    ],
+    "true_peak_max": -1.0,
+    "families": {
+      "movement": "whooshes peak ON the cut",
+      "texture": "clicks/pops/UI land on the frame the visual starts",
+      "anticipation": "risers END on the reveal, hits land on it"
+    }
+  }
+}

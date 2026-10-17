@@ -1,0 +1,45 @@
+{
+  "whoosh": [
+    {
+      "file": "sfx/whoosh_short.wav",
+      "peak": 0.12,
+      "dur": 0.45
+    },
+    {
+      "file": "sfx/whoosh_long.wav",
+      "peak": 0.3,
+      "dur": 1.1
+    },
+    {
+      "file": "sfx/whoosh_textured.wav",
+      "peak": 0.2,
+      "dur": 0.7
+    }
+  ],
+  "pop": [
+    {
+      "file": "sfx/pop_soft.wav"
+    }
+  ],
+  "click": [
+    {
+      "file": "sfx/click_metal.wav"
+    }
+  ],
+  "ui_click": [
+    {
+      "file": "sfx/ui_click.wav"
+    }
+  ],
+  "riser": [
+    {
+      "file": "sfx/riser_bass.wav",
+      "dur": 2.0
+    }
+  ],
+  "hit": [
+    {
+      "file": "sfx/hit_heavy.wav"
+    }
+  ]
+}

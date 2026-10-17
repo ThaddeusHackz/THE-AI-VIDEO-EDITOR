@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pro-editor-kit scene plan (one row per script line)",
+  "type": "object",
+  "required": [
+    "fps",
+    "lines"
+  ],
+  "properties": {
+    "fps": {
+      "type": "number"
+    },
+    "style": {
+      "type": "object",
+      "properties": {
+        "accent": {
+          "type": "string"
+        },
+        "fonts": {
+          "type": "object"
+        },
+        "font_colors": {
+          "type": "object"
+        }
+      }
+    },
+    "lines": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "start",
+          "end",
+          "text",
+          "scene_type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "start": {
+            "type": "number",
+            "minimum": 0
+          },
+          "end": {
+            "type": "number",
+            "minimum": 0
+          },
+          "text": {
+            "type": "string"
+          },
+          "scene_type": {
+            "type": "string",
+            "enum": [
+              "captions",
+              "captions_ui",
+              "half_screen",
+              "full_screen",
+              "broll",
+              "pip",
+              "split"
+            ]
+          },
+          "animation_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "text",
+              "person",
+              "object",
+              "graphic",
+              null
+            ]
+          },
+          "camera": {
+            "type": "string",
+            "enum": [
+              "static",
+              "punch_in",
+              "slow_push",
+              "whip",
+              "track",
+              "orbit",
+              "dolly",
+              "crash_zoom"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "t",
+          "type"
+        ],
+        "properties": {
+          "t": {
+            "type": "number",
+            "minimum": 0
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "transition",
+              "zoom",
+              "text_in",
+              "ui",
+              "chapter",
+              "impact",
+              "reveal"
+            ]
+          },
+          "intensity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          }
+        }
+      }
+    }
+  }
+}

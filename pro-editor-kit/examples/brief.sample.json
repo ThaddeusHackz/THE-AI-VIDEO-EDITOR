@@ -1,0 +1,34 @@
+{
+  "title": "Three mistakes (sample)",
+  "platform": "reels",
+  "aspect": "9:16",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "duration_seconds": 45,
+  "lufs": -14,
+  "tone": "premium, calm, confident",
+  "palette": {
+    "bg": "#14161A",
+    "fg": "#F4F1EA",
+    "accent": "#C9A44C",
+    "muted": "#7D8A80"
+  },
+  "fonts": {
+    "primary": "Inter",
+    "accent": "Cormorant Garamond"
+  },
+  "engine": "remotion",
+  "references": [
+    {
+      "path": "refs/style.mp4",
+      "use": "style",
+      "rights": "reference-only"
+    }
+  ],
+  "deliverables": [
+    "master 9:16",
+    "captions.srt",
+    "contact sheet"
+  ]
+}
