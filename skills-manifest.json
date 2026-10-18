@@ -1,41 +1,41 @@
 {
   "source": "ThaddeusHackz/AI-VIDEO-EDITOR (heygen-com/hyperframes + remotion-dev/remotion + morluto/rea + opus-js-animations + gpt-js-animations + higgsfield-ultrahigh)",
-  "totalSkills": 59,
+  "totalSkills": 61,
   "skills": {
     "captions-overlay": {
-      "hash": "dde58d4fcad6b244",
+      "hash": "bfae96c6bf80e83e",
       "files": 1
     },
     "changelog-video": {
-      "hash": "d56344538fce993e",
+      "hash": "2fdf40d733e3f9ae",
       "files": 15
     },
     "character-ik-lip-sync": {
-      "hash": "86cd1cf0c0e8c24f",
+      "hash": "5cba0ee0a1dea8c4",
       "files": 1
     },
     "cinema-studio-4-presets": {
-      "hash": "78e63e37f6e43d01",
+      "hash": "4511b0955da156da",
       "files": 1
     },
     "cinematic-3d-vfx-cgi": {
-      "hash": "6369e75f7d432223",
+      "hash": "312741a0060414f3",
       "files": 1
     },
     "cut-the-curve": {
-      "hash": "14fade7e090d6440",
+      "hash": "3b35f2238b506dc2",
       "files": 2
     },
     "embedded-captions": {
-      "hash": "e016110dabe17f74",
+      "hash": "13f7d6c3c730868d",
       "files": 144
     },
     "faceless-explainer": {
-      "hash": "c156e75b896df98e",
+      "hash": "bb2225ebaf7f9622",
       "files": 29
     },
     "figma": {
-      "hash": "8382c404c6a08a3d",
+      "hash": "f8cf9f2c78ea8374",
       "files": 2
     },
     "forensic-scan-protocol": {
@@ -47,23 +47,23 @@
       "files": 5
     },
     "general-video": {
-      "hash": "a021a8ffde41ac46",
+      "hash": "17dfbb1d34efb012",
       "files": 6
     },
     "gpt-js-animations": {
-      "hash": "9b61727f1e2d7608",
-      "files": 29
+      "hash": "c129f1e30e8125dc",
+      "files": 6
     },
     "heygen-github-forensic-atlas": {
-      "hash": "af11e0844338b14c",
+      "hash": "288ef7cfe62d2fa1",
       "files": 4
     },
     "higgsfield-camera-dop": {
-      "hash": "15b52f5b72a1c251",
+      "hash": "d3b510051812836a",
       "files": 1
     },
     "higgsfield-effects-mix": {
-      "hash": "59841c352e463f4a",
+      "hash": "369bf45374794c04",
       "files": 1
     },
     "higgsfield-forensic-atlas": {
@@ -71,111 +71,119 @@
       "files": 6
     },
     "hyperframes": {
-      "hash": "71ff42947e12d7d0",
+      "hash": "9787b91e4c16bf7f",
       "files": 31
     },
     "hyperframes-animation": {
-      "hash": "c0764be520aeb0a2",
+      "hash": "a5d09375a50f71c8",
       "files": 122
     },
     "hyperframes-audio": {
-      "hash": "45ce687558f75959",
+      "hash": "780c9d4d8d23ab40",
       "files": 8
     },
     "hyperframes-cli": {
-      "hash": "80e5c97c7113e166",
+      "hash": "56a46bc15c308d98",
       "files": 11
     },
     "hyperframes-core": {
-      "hash": "8d4d8fea7f385e5d",
+      "hash": "010a65915fc7b45e",
       "files": 11
     },
     "hyperframes-creative": {
-      "hash": "7ba2ab40521c2927",
+      "hash": "8d0601ce26adc560",
       "files": 79
     },
     "hyperframes-keyframes": {
-      "hash": "5af610a9a00c71f1",
+      "hash": "a3d43b98955b1366",
       "files": 3
     },
     "hyperframes-registry": {
-      "hash": "1677d86bd6ae5bf1",
+      "hash": "d7c1885fb4cce2cf",
       "files": 12
     },
     "hyperframes-studio": {
-      "hash": "7449da3952155e40",
+      "hash": "f5e0b44d68152c12",
+      "files": 1
+    },
+    "master-editor-protocol": {
+      "hash": "517c40af46acf299",
       "files": 1
     },
     "media-use": {
-      "hash": "aba8217a1c07a635",
+      "hash": "c4c3c723aa04bb7d",
       "files": 112
     },
     "motion-doctrine": {
-      "hash": "5995ac842ff6a76f",
+      "hash": "b5ba8ab63ca70097",
       "files": 4
     },
     "motion-graphics": {
-      "hash": "4329dddf4b7194f6",
+      "hash": "7e4af0881390ac2e",
       "files": 23
     },
+    "motion-quality-gates": {
+      "hash": "6bcff9011dc4e023",
+      "files": 1
+    },
     "music-to-video": {
-      "hash": "b84298ba349e0bd1",
+      "hash": "23ce47a767da8142",
       "files": 169
     },
     "nle-video-editor-pro": {
-      "hash": "e1a9a1758a11e9f0",
+      "hash": "ba202afea106eae5",
       "files": 1
     },
     "opus-5-5-sol-6-1-director": {
-      "hash": "1f284dd617da7414",
+      "hash": "0296ad5cbcae2cad",
       "files": 4
     },
     "opus-gpt-director": {
-      "hash": "6f83c4d21b3ac157",
+      "hash": "631c6b3392536148",
       "files": 1
     },
     "opus-js-animations": {
-      "hash": "6ead22a5f1f6dba6",
+      "hash": "b43ca4d163946571",
       "files": 28
     },
     "oversized-cursor": {
-      "hash": "a176b1f251c37908",
+      "hash": "20eb66854b54de22",
       "files": 1
     },
     "pr-to-video": {
-      "hash": "89bb0000569fe0c4",
+      "hash": "d377b802ef54bc46",
       "files": 35
     },
     "product-launch-video": {
-      "hash": "ddad89ee0d726a5b",
+      "hash": "965b9b93bf19b173",
       "files": 37
     },
     "rea-changelog-update": {
-      "hash": "d30497ee947ac53e",
+      "hash": "792f0ffd7935c161",
       "files": 1
     },
     "rea-tool-design": {
-      "hash": "6023df0f1cdbe994",
+      "hash": "f5a3ac3cfaac9872",
       "files": 1
     },
     "rea-video-reverse-engineer": {
-      "hash": "214431117dfd254f",
+      "hash": "5b577fd1144d7fe3",
       "files": 1
     },
     "remotion-best-practices": {
-      "hash": "c1aab8446392349e",
+      "hash": "4c90815458fa2f64",
       "files": 3
     },
     "remotion-captions": {
-      "hash": "63a79933da84b008",
+      "hash": "bbd7f77edde5dc5d",
       "files": 6
     },
     "remotion-create": {
-      "hash": "3b626445321c4538",
+      "hash": "be5571c95d5a3962",
       "files": 5
     },
     "remotion-docs": {
-      "hash": "1125a237e758475e",
+      "hash": "f8b77fafa19aef65",
       "files": 3
     },
     "remotion-github-forensic-atlas": {
@@ -183,59 +191,59 @@
       "files": 4
     },
     "remotion-interactivity": {
-      "hash": "7661ab8d7b9647c6",
+      "hash": "f8511a58d3f596f7",
       "files": 4
     },
     "remotion-maps": {
-      "hash": "e54a1a9a01407823",
+      "hash": "e7c6af4ef7e80a24",
       "files": 32
     },
     "remotion-markup": {
-      "hash": "350fce61835590f6",
+      "hash": "1ecc5ecda6312077",
       "files": 34
     },
     "remotion-multimedia": {
-      "hash": "b4140c32516d428a",
+      "hash": "c65bc8ed5e78ac2b",
       "files": 6
     },
     "remotion-render": {
-      "hash": "f0faa9375843fe6c",
+      "hash": "90d1551d562f2a9e",
       "files": 4
     },
     "remotion-saas": {
-      "hash": "ee39b1af1318603f",
+      "hash": "3a308ccf8494f2cc",
       "files": 6
     },
     "remotion-studio": {
-      "hash": "0680266870f178ba",
+      "hash": "90a2cb014544a59d",
       "files": 3
     },
     "remotion-to-hyperframes": {
-      "hash": "6e2c3310b1307b53",
+      "hash": "d02be65b7f3f4a63",
       "files": 77
     },
     "remotion-upgrade": {
-      "hash": "c21b2c383b0bad87",
+      "hash": "494f21f43dd58a3d",
       "files": 3
     },
     "reverse-engineer-anything": {
-      "hash": "1edc0ae3f99bdb1c",
+      "hash": "2c52bfd2d4a399f0",
       "files": 7
     },
     "seam-craft": {
-      "hash": "c5aa27c6d6c088fa",
+      "hash": "c926511e2ea22a40",
       "files": 1
     },
     "slideshow": {
-      "hash": "7188979eb063df7d",
+      "hash": "efc3c0be622fa9a1",
       "files": 2
     },
     "talking-head-recut": {
-      "hash": "c166cd75cec67863",
+      "hash": "24e40839ed3dc045",
       "files": 28
     },
     "youtube-opus-gpt-benchmarks": {
-      "hash": "67f1b7b4fde0b010",
+      "hash": "340cba0491a41b60",
       "files": 1
     }
   }

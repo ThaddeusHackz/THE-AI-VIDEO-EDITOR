@@ -4,7 +4,7 @@
 The Singularity Engine — VO stage.
 
 Inputs
-  productions/singularity-engine/audio/vo_raw/L1..L5.wav   voice-00 studio-TTS takes (one per script line)
+  productions/singularity-engine/audio/vo_raw/L1..L5.flac  voice-00 studio-TTS takes (one per script line)
   remotion/src/singularity/timeline.json                   phrase onsets on the 100 BPM half-beat grid
 
 Outputs

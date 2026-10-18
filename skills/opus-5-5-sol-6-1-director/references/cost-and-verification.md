@@ -43,7 +43,7 @@ Compare: regenerating a 60-second film with a video model at ~$0.20/s costs **$1
 ./bin/ai-video verify
 
 # 2. Registry integrity (if registry/ touched)
-node scripts/validate-registry.mjs
+node scripts/lint-registry-items.mjs
 
 # 3. Seam gate (if any cut/seam changed)
 node scripts/seam-gate.mjs verify \

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ============================================================================
 #  bin/ai-video — Unified CLI for the AI-VIDEO-EDITOR Repository
-#  Engines: HyperFrames + Remotion + REA + Higgsfield DoP + 47 Agent Skills
+#  Engines: HyperFrames + Remotion + REA + Higgsfield DoP + 61 Agent Skills
 # ============================================================================
 set -euo pipefail
 
@@ -80,11 +80,11 @@ case "$CMD" in
 
   verify)
     ensure_ffmpeg_from_remotion
-    bold "== 1/3 Remotion TypeScript Verification (remotion/) =="
+    bold "== 1/5 Remotion TypeScript Verification (remotion/) =="
     (cd "${REPO_ROOT}/remotion" && npx tsc --noEmit)
     ok "Remotion TypeScript check passed (0 errors)"
 
-    bold "== 2/3 HyperFrames Lint Verification (examples/ultrahigh-3d-vfx-showreel) =="
+    bold "== 2/5 HyperFrames Lint Verification (examples/ultrahigh-3d-vfx-showreel) =="
     hyperframes lint "${REPO_ROOT}/examples/ultrahigh-3d-vfx-showreel"
     ok "HyperFrames lint check passed (0 errors, 0 warnings)"
 
@@ -107,7 +107,8 @@ case "$CMD" in
     ;;
 
   skills)
-    bold "== AI-VIDEO-EDITOR // 47 Installed Agent Skills =="
+    SKILL_COUNT="$(find "${REPO_ROOT}/skills" -mindepth 1 -maxdepth 1 -type d | wc -l)"
+    bold "== AI-VIDEO-EDITOR // ${SKILL_COUNT} Installed Agent Skills =="
     ls -1 "${REPO_ROOT}/skills"
     ;;
 
@@ -143,6 +144,9 @@ EOF
   • VFX-CGI-Compositor      (1920x1080, 30fps, 240f / 8.0s)  — 4-Pass VFX Breakdown + Bullet-Time Shatter
   • MotionDoctrine-Showreel (1920x1080, 30fps, 300f / 10.0s) — Waterfall + 7cqw Cursor + Cut-the-Curve + Climax
   • NLE-Master-Editor       (1920x1080, 30fps, 240f / 8.0s)  — Multi-Track NLE + Caption Rail/Embed + LUT Grade
+  • Higgsfield-CinemaStudio-4 (1920x1080, 30fps, 300f / 10.0s) — Cinema Studio 4.0 + 3D Carousel + Sliding Stack + IK Character
+  • Higgsfield-EffectsMix-Lab (1920x1080, 30fps, 240f / 8.0s) — Multi-VFX Stacker (Thunder God · Levitation · Fire · Disintegration)
+  • ZackWindow-Short        (1080x1920, 30fps, 1257f / 41.9s) — 9:16 explainer short (airplane window hole)
   • ThaddeusTechz-Landscape (1920x1080, 30fps, 540f / 18.0s) — Channel Promo (16:9 Landscape)
   • ThaddeusTechz-Shorts    (1080x1920, 30fps, 540f / 18.0s) — Channel Promo (9:16 Vertical Shorts)
   • TitleCard               (1920x1080, 30fps, 180f / 6.0s)  — Prop-Driven Editorial Title Card

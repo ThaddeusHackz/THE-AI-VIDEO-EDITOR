@@ -52,4 +52,4 @@ See [`2026-model-stack.md`](2026-model-stack.md) for the side-by-side of **Claud
 
 - [`../VIDEO-GALLERY.md`](../VIDEO-GALLERY.md) — the rendered-video showcase (13 films) with specs and links
 - [`../video-gallery.html`](../video-gallery.html) — the same gallery as a playable page
-- [`../../skills/README`](../../skills) — the full skill catalog
+- [`../../skills`](../../skills) — the full skill catalog

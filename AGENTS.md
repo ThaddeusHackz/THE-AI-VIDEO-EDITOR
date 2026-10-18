@@ -1,6 +1,6 @@
 # AGENTS.md — AI Video Engineering Instructions (Claude Opus 5.5 / GPT-6.1 Sol / Codex / OpenCode)
 
-This repository (`/home/user/AI-VIDEO-EDITOR`) is an all-in-one programmatic 3D motion graphics, VFX/CGI, and non-linear video editing studio powered by **HyperFrames**, **Remotion**, **REA (`morluto/rea`)**, and **Higgsfield DoP Camera Choreography**.
+This repository (`/home/user/THE-AI-VIDEO-EDITOR`) is an all-in-one programmatic 3D motion graphics, VFX/CGI, and non-linear video editing studio powered by **HyperFrames**, **Remotion**, **REA (`morluto/rea`)**, and **Higgsfield DoP Camera Choreography**.
 
 ## 1. Mandatory Startup Checklist for Every Agent
 
@@ -10,9 +10,9 @@ This repository (`/home/user/AI-VIDEO-EDITOR`) is an all-in-one programmatic 3D 
    ./bin/ai-video doctor
    ```
 2. **Select the Right Skill First**:
-   All 47 skills live in `skills/<name>/SKILL.md` (and are symlinked in `.agents/skills/` and `.claude/skills/`).
+   All 61 skills live in `skills/<name>/SKILL.md` (and are symlinked in `.agents/skills/` and `.claude/skills/`).
    - **Master Director & `/ultrahigh` Mode**: Read `skills/opus-gpt-director/SKILL.md`
-   - **3D Motion Graphics & VFX/CGI**: Read `skills/cinematic-3d-vfx-cgi/SKILL.md` and `skills/remotion-3d/SKILL.md`
+   - **3D Motion Graphics & VFX/CGI**: Read `skills/cinematic-3d-vfx-cgi/SKILL.md` and `skills/higgsfield-effects-mix/SKILL.md`
    - **Camera Choreography (Dolly Zoom, Orbit, Bullet-Time, Whip-Pan)**: Read `skills/higgsfield-camera-dop/SKILL.md`
    - **Seam Craft & Vector Continuity**: Read `skills/motion-doctrine/SKILL.md`, `skills/cut-the-curve/SKILL.md`, and `skills/seam-craft/SKILL.md`
    - **Oversized Cursor Choreography**: Read `skills/oversized-cursor/SKILL.md`
