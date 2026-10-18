@@ -6,7 +6,7 @@ Read [`AGENTS.md`](AGENTS.md) and [`skills/opus-gpt-director/SKILL.md`](skills/o
 
 - **Toolchain Doctor**: `./bin/ai-video doctor`
 - **Full Verification**: `./bin/ai-video verify`
-- **All 47 Skills**: `.claude/skills/<skill-name>/SKILL.md` (canonical source in `skills/<skill-name>/SKILL.md`)
+- **All 61 Skills**: `.claude/skills/<skill-name>/SKILL.md` (canonical source in `skills/<skill-name>/SKILL.md`)
 - **Remotion Engine**: `remotion/src/engine/` (`cameraRig.tsx`, `seamTransitions.ts`, `vfxShaders.tsx`, `nleTrackEngine.tsx`)
 - **HyperFrames DoP Camera Engine**: `toolkit/vendor/camera-dop.js`
 - **HyperFrames Registry**: `registry/blocks/` (210 blocks) & `registry/components/` (237 components), cached offline in `.hyperframes/cache/`

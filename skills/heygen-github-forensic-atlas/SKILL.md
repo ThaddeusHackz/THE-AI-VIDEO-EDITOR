@@ -47,7 +47,7 @@ description: "Full forensic atlas of the heygen-com GitHub organisation: hyperfr
 
 - **Tagline:** *Write HTML. Render video. Built for agents.*
 - **Latest release observed:** **v0.8.164** (2026-10-16) — the line is actively shipping *daily*.
-- **Vendored into this repo as:** `packages/` (cli, core, engine, lint, parsers, player, producer, sdk, shader-transitions, studio, studio-server, inspector, aws-lambda, gcp-cloud-run) + `registry/` (210 blocks, 237→238 components) + `.hyperframes/cache/` (offline registry manifests) + `examples/ultrahigh-3d-vfx-showreel/`.
+- **Vendored into this repo as:** `packages/` (cli, core, engine, lint, parsers, player, producer, sdk, shader-transitions, studio, studio-server, inspector, aws-lambda, gcp-cloud-run) + `registry/` (210 blocks, 237 components) + `.hyperframes/cache/` (offline registry manifests) + `examples/ultrahigh-3d-vfx-showreel/`.
 - **Doctrine shipped with it that this repo extends:** Vector Law, Z-scale-sign rule, dominant current, the Vector Ledger (`ledger.json`), the Seam Gate (`scripts/seam-gate.mjs`), White-flash opaque `#root` guard, 7cqw oversized cursor, caption Drop/Rail/Embed tiers.
 
 **Update discipline:** because upstream ships daily, treat this repo's vendored copy as a **pinned fork**. When pulling upstream, re-run `./bin/ai-video verify` (TypeScript + lint 0/0 + seam stamps) and the registry validator before committing.

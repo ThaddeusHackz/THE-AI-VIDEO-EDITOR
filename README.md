@@ -1,8 +1,8 @@
 # AI-VIDEO-EDITOR — UltraHigh 3D Motion Graphics, VFX/CGI, NLE & Programmatic Video Monorepo
 
 [![Engines](https://img.shields.io/badge/engines-Remotion%20%C2%B7%20HyperFrames%20%C2%B7%20REA-5eead4?style=flat-square)](#3-dual-engine-rendering-workflows)
-[![Skills](https://img.shields.io/badge/agent%20skills-59-a78bfa?style=flat-square)](skills)
-[![Registry](https://img.shields.io/badge/registry-210%20blocks%20%2B%20238%20components-fbbf24?style=flat-square)](registry)
+[![Skills](https://img.shields.io/badge/agent%20skills-61-a78bfa?style=flat-square)](skills)
+[![Registry](https://img.shields.io/badge/registry-210%20blocks%20%2B%20237%20components-fbbf24?style=flat-square)](registry)
 [![Render gallery](https://img.shields.io/badge/render%20gallery-13%20films-f472b6?style=flat-square)](docs/VIDEO-GALLERY.md)
 [![Forensics](https://img.shields.io/badge/forensics-4%20atlases%20%2B%20method-38bdf8?style=flat-square)](docs/forensics/README.md)
 [![Built for](https://img.shields.io/badge/built%20for-Claude%20Opus%205.5%20%C2%B7%20GPT--6.1%20Sol%20%C2%B7%20Gemini%204%20Argon-0f172a?style=flat-square)](docs/forensics/2026-model-stack.md)
@@ -26,17 +26,22 @@ AI-VIDEO-EDITOR/
 ├── toolkit/                          # Offline-first shared assets (zero CDN dependency at render time)
 │   ├── fonts/                        # Inter, Space Grotesk, JetBrains Mono, Cinzel, Cormorant Garamond (.woff2)
 │   ├── vendor/                       # gsap.min.js, three.core.min.js, shaders.iife.js, camera-dop.js, vfx-cgi-suite.js
-│   └── templates/                    # hyperframes-base.html & remotion-base.tsx starter templates
-├── remotion/                         # Engine 2: Complete Remotion Studio + 59 Upstream Packages & Templates
-│   ├── packages/                     # 59 official remotion-dev/remotion packages (three, effects, svg-3d-engine, light-leaks, transitions, motion-blur, shapes, skia, rive, lottie, template-prompt-to-motion-graphics, etc.)
+│   ├── AI_VIDEO_EDITOR_PLAYBOOK.md   # End-to-end operator playbook
+│   ├── VIDEO_BRIEF_TEMPLATE.md       # Brief template for new films
+│   └── OPUS_5_5_VIDEO_WORKFLOW_RESEARCH.md # Workflow research notes
+├── remotion/                         # Engine 2: Complete Remotion Studio + 40 Upstream Packages & Templates
+│   ├── packages/                     # 40 official remotion-dev/remotion packages (three, effects, svg-3d-engine, light-leaks, transitions, motion-blur, shapes, skia, rive, lottie, template-prompt-to-motion-graphics, etc.)
 │   ├── src/
-│   │   ├── Root.tsx                  # 10 registered compositions (3D, VFX, Motion Doctrine, NLE, Cinema Studio 4.0, Promo, Cards)
+│   │   ├── Root.tsx                  # 14 registered compositions (3D, VFX, Motion Doctrine, NLE, Cinema Studio 4.0, Promo, Cards)
 │   │   ├── Cinematic3DShowcase.tsx   # 3D Geodesic Wireframe + Higgsfield DoP Rigs + Godrays + Lens Flare
 │   │   ├── VFXCompositorSuite.tsx    # 4-Pass VFX Breakdown + Bullet-Time Shatter + Matchmove HUD
 │   │   ├── MotionDoctrineReel.tsx    # Waterfall Entry + 7cqw Cursor + Cut-the-Curve + Climax Stillness
 │   │   ├── NLEMasterTimeline.tsx     # Multi-Track NLE + Parakeet Caption Rail/Embed + LUT Color Grade
 │   │   ├── HiggsfieldCinemaStudioShowreel.tsx # Cinema Studio 4.0 + 3D Carousel + Sliding Stack + Physics + 2-Bone IK Character
+│   │   ├── HiggsfieldEffectsMixLab.tsx # Multi-VFX Stacker (Thunder God · Levitation · Fire · Disintegration)
 │   │   ├── ThaddeusTechzPromo.tsx    # Channel Promo (16:9 Landscape & 9:16 Shorts with procedural card fallback)
+│   │   ├── singularity/SingularityEngine.tsx # Flagship 30 s film — 16:9 master + 9:16 vertical (60 fps)
+│   │   ├── zack-window/ZackWindowShort.tsx # 9:16 explainer short "Why airplane windows have a tiny hole"
 │   │   ├── TitleCard.tsx             # Prop-driven editorial title card (16:9 & 1:1)
 │   │   ├── ScriptureCard.tsx         # Minimalist warm editorial card
 │   │   └── engine/                   # 7-Module Remotion 3D / VFX / DoP / Seam / NLE / Cinema Studio 4.0 / IK Engine
@@ -49,19 +54,19 @@ AI-VIDEO-EDITOR/
 │   │       └── characterRig2D.tsx    # Analytic 2-Bone IK Solver (solveTwoBoneIK) + Lip-Sync Viseme Character Rig
 ├── packages/                         # Complete heygen-com/hyperframes monorepo (15 packages)
 │   ├── cli/  core/  engine/  lint/  parsers/  player/  producer/  sdk/
-│   ├── shader-transitions/  studio/  studio-server/  inspector/  aws-lambda/  gcp-cloud-run/
+│   ├── shader-transitions/  studio/  studio-server/  inspector/  aws-lambda/  gcp-cloud-run/  sdk-playground/
 ├── registry/                         # Complete HyperFrames Registry (447 visual assets)
 │   ├── blocks/                       # 210 multi-element scene templates (3D WebGL, GLSL shaders, UI mocks)
 │   └── components/                   # 237 atomic motion primitives (kinetic type, counters, bursts, HUDs)
 ├── rea/                              # Complete morluto/rea reverse-engineering & visual replication studio
 ├── examples/
 │   └── ultrahigh-3d-vfx-showreel/    # Lint-clean, Seam-Stamped HyperFrames 3D + DoP reference project
-├── scripts/                          # seam-gate.mjs, seam-stamp.mjs, validate-registry.mjs, gate-probes
+├── scripts/                          # seam-gate.mjs, seam-stamp.mjs, lint-registry-items.mjs, gate-probes
 ├── docs/
 │   ├── VIDEO-GALLERY.md              # Render gallery: 13 shipped films with specs + watch links
 │   ├── video-gallery.html            # Same gallery as a playable page (Drive preview embeds)
 │   └── forensics/                    # 2026 tool & model atlases (Argon · Higgsfield · HeyGen · Remotion)
-└── skills/                           # 59 Agent Skills (symlinked into .agents/skills/ & .claude/skills/)
+└── skills/                           # 61 Agent Skills (symlinked into .agents/skills/ & .claude/skills/)
 ```
 
 ---
@@ -91,13 +96,13 @@ compositions: `Singularity-Master` (1920×1080) and `Singularity-Vertical` (1080
 # 1. Load environment variables (caches in ~/.cache, single-worker producer for sandboxes)
 source ./hf-env.sh
 
-# 2. Run one-command health check (Node 22, FFmpeg 7.1, HyperFrames CLI, Remotion, 59 Skills, 447 Registry items)
+# 2. Run one-command health check (Node 22+, FFmpeg 7.1+, HyperFrames CLI, Remotion, 61 Skills, 447 Registry items)
 ./bin/ai-video doctor
 
 # 3. Verify TypeScript compilation, HyperFrames lint (0 errors/0 warnings), and Vector Ledger seam stamps
 ./bin/ai-video verify
 
-# 4. Browse all 59 Agent Skills, 10 Higgsfield DoP camera presets, and 9 Remotion compositions
+# 4. Browse all 61 Agent Skills, 10 Higgsfield DoP camera presets, and 14 Remotion compositions
 ./bin/ai-video skills
 ./bin/ai-video presets
 ./bin/ai-video compositions
@@ -112,7 +117,7 @@ source ./hf-env.sh
 ```bash
 cd remotion
 
-# List all 9 compositions
+# List all 14 compositions
 npx remotion compositions src/index.ts
 
 # Render the 4 Flagship 3D / VFX / Motion-Doctrine / NLE Compositions
@@ -148,7 +153,7 @@ See [`skills/rea-video-reverse-engineer/SKILL.md`](skills/rea-video-reverse-engi
 
 ---
 
-## 4. Complete 59-Skill Catalog (`skills/`, `.agents/skills/`, `.claude/skills/`)
+## 4. Complete 61-Skill Catalog (`skills/`, `.agents/skills/`, `.claude/skills/`)
 
 ### Tier 1 — UltraHigh Master Skills (Claude Opus 5.5 / GPT-6.1 Sol / Higgsfield DoP)
 | Skill | Purpose |
@@ -159,7 +164,7 @@ See [`skills/rea-video-reverse-engineer/SKILL.md`](skills/rea-video-reverse-engi
 | `nle-video-editor-pro` | Multi-track NLE editing, J/L cuts, Parakeet ASR captions (Drop/Rail/Embed), LUT grading, `-16 LUFS` audio |
 | `rea-video-reverse-engineer` | Reference video deconstruction (scene cuts, easing curves, color grade) via `rea/` into code |
 
-### Tier 2 — HyperFrames Internal Craft Doctrine (6 Skills)
+### Tier 2 — HyperFrames Internal Craft Doctrine (7 Skills)
 | Skill | Purpose |
 |---|---|
 | `motion-doctrine` | Vector Law, Z scale-sign rule, dominant current, Vector Ledger (`ledger.json`), Seam Gate (`seam-gate.mjs`) |
@@ -167,16 +172,17 @@ See [`skills/rea-video-reverse-engineer/SKILL.md`](skills/rea-video-reverse-engi
 | `seam-craft` | White-flash opaque `#root` guard, overlap ping-pong tracks, and master transition injector |
 | `oversized-cursor` | House `7cqw` oversized cursor protagonist, physical off-screen entry, 1:2 tap, same-frame click ignition |
 | `captions-overlay` | Three-tier caption system (`Drop`, `Rail`, `Embed` behind-subject) with true vertical center discipline |
-| `audit-fix-component` | Registry component/block visual & deterministic seek audit |
+| `master-editor-protocol` | Read-first routing protocol — one deterministic edit pipeline for Opus 5.5 / GPT-6.1 Sol / Gemini 4 Argon, with role routing and hard QA gates |
+| `motion-quality-gates` | Numeric pass/fail gates that stop bad motion, sloppy cuts and broken renders before delivery |
 
 ### Tier 3 — HyperFrames Production & Genre Skills (21 Skills)
 `hyperframes`, `hyperframes-animation`, `hyperframes-audio`, `hyperframes-cli`, `hyperframes-core`, `hyperframes-creative`, `hyperframes-keyframes`, `hyperframes-registry`, `hyperframes-studio`, `motion-graphics`, `product-launch-video`, `faceless-explainer`, `talking-head-recut`, `embedded-captions`, `music-to-video`, `pr-to-video`, `general-video`, `slideshow`, `figma`, `media-use`, `remotion-to-hyperframes`.
 
 ### Tier 4 — Official Remotion Skills (12 Skills)
-`remotion-best-practices`, `remotion-3d`, `remotion-animations`, `remotion-Synchronize`, `remotion-audio`, `remotion-captions`, `remotion-charts`, `remotion-compositions`, `remotion-fonts`, `remotion-lottie`, `remotion-sfx`, `remotion-transitions`.
+`remotion-best-practices`, `remotion-captions`, `remotion-create`, `remotion-docs`, `remotion-interactivity`, `remotion-maps`, `remotion-markup`, `remotion-multimedia`, `remotion-render`, `remotion-saas`, `remotion-studio`, `remotion-upgrade`.
 
-### Tier 5 — REA Reverse-Engineering Skills (3 Skills)
-`rea-feishu-Bot`, `rea-universal-editor-dom-surgeon`, `rea-webapp-testing`.
+### Tier 5 — REA Reverse-Engineering Skills (2 Skills)
+`rea-changelog-update`, `rea-tool-design`.
 
 ### Tier 6 — 2026 Forensic Atlases & Model Doctrine (6 Skills)
 | Skill | Purpose |
@@ -187,6 +193,9 @@ See [`skills/rea-video-reverse-engineer/SKILL.md`](skills/rea-video-reverse-engi
 | `remotion-github-forensic-atlas` | Whole `remotion-dev` org (120+ repos): core **4.0.536**, the 12-skill bundle, **5 agent plugins**, every template (prompt→motion-graphics, tiktok, audiogram, three, skia, overlay), recorder / `html-in-canvas`, Rust FFmpeg, Lambda/Cloudflare/Vercel render stacks |
 | `opus-5-5-sol-6-1-director` | Director doctrine for **Claude Opus 5.5** + **GPT-6.1 Sol**: verified specs, effort ladders, 1M-context budgeting, subagent shape for a multi-act reel, cost math per deliverable, verification gates — and the rule that **neither model takes video input** (route footage to Argon) |
 | `forensic-scan-protocol` | The reusable method: 27 probes, evidence tiers A–E, hidden-surface hunting, claim-testing loop, publishing anatomy, ethics line |
+
+### Tier 7 — JS Animation, Higgsfield Mixes & Benchmarks (8 Skills)
+`higgsfield-effects-mix`, `character-ik-lip-sync`, `cinema-studio-4-presets`, `changelog-video`, `gpt-js-animations`, `opus-js-animations`, `reverse-engineer-anything`, `youtube-opus-gpt-benchmarks`.
 
 ---
 

@@ -42,7 +42,7 @@ The practical bridge between the model layer and the render layer. Every row end
 
 | Task | Model / effort | Repo surface | Gate |
 |---|---|---|---|
-| Author a new block or component | Sol @ medium | `registry/blocks`, `registry/components` | `node scripts/validate-registry.mjs` |
+| Author a new block or component | Sol @ medium | `registry/blocks`, `registry/components` | `node scripts/lint-registry-items.mjs` |
 | Port a block into a showreel | Sol @ low | `examples/ultrahigh-3d-vfx-showreel/` | `hyperframes lint` 0/0 |
 | Seam stamping after a cut change | Sol @ low (tool-only) | `scripts/seam-stamp.mjs` | `seam-gate verify` 0 fail/warn |
 | Doctrine compliance review | Opus 5.5 @ high | `skills/motion-doctrine`, `skills/seam-craft` | critic report + raw gate output |

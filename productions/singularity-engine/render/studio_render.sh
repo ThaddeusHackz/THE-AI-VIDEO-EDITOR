@@ -47,6 +47,9 @@ stage_plate() {
   say "HYPERFRAMES · genesis-code plate"
   (
     cd "$HERE/hyperframes/genesis-code"
+    mkdir -p vendor fonts
+    cp -f "$ROOT"/toolkit/vendor/{gsap.min.js,camera-dop.js,vfx-cgi-suite.js} vendor/
+    cp -f "$ROOT"/toolkit/fonts/{mono-400.woff2,mono-700.woff2,sg-700.woff2} fonts/
     node "$ROOT/scripts/seam-stamp.mjs" --ledger ledger.json --write index.html
     hyperframes lint .
     node "$ROOT/scripts/seam-gate.mjs" verify --ledger ledger.json --project . --fps 60
